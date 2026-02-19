@@ -133,9 +133,7 @@ class A2uiValidator:
     from urllib.parse import urljoin
 
     def get_sibling_uri(uri, filename):
-      # Ensure base ends with '/' so urljoin replaces only the last segment
-      base = uri if uri.endswith("/") else uri.rsplit("/", 1)[0] + "/"
-      return urljoin(base, filename)
+      return urljoin(uri, filename)
 
     catalog_uri = get_sibling_uri(base_uri, "catalog.json")
     common_types_uri = get_sibling_uri(base_uri, "common_types.json")
